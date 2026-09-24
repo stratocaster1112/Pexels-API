@@ -1,6 +1,6 @@
 # Pexels-API
 
-<h2>This project uses Ionic alr</h2>
+<p>This project uses Ionic alr</p>
 
 <h2>Change the handle 'PEXELS_API_KEY' to your own pexels api key</h2>
 
