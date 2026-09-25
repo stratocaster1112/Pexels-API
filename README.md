@@ -1,6 +1,7 @@
 # Pexels-API
 
 This project uses Ionic alr
+
 Change the handle 'PEXELS_API_KEY' to your own pexels api key
 
 This works like a searcher for pexels images, but with your own API key for your ionic application.
