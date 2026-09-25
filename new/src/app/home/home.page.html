@@ -1,0 +1,84 @@
+<ion-toolbar>
+
+  <ion-title>Fotos Pexels</ion-title>
+
+  <ion-buttons slot="end">
+
+    <ion-button routerLink="/favoritos">
+      ❤️
+    </ion-button>
+
+  </ion-buttons>
+
+</ion-toolbar>
+
+<ion-content class="ion-padding">
+
+  <ion-searchbar
+    [(ngModel)]="busca"
+    placeholder="Digite o que deseja pesquisar"
+    (keyup.enter)="pesquisar()">
+  </ion-searchbar>
+
+  <ion-button
+    expand="block"
+    (click)="pesquisar()">
+    Buscar fotos
+  </ion-button>
+
+  <div class="galeria">
+
+  @for (foto of fotos; track foto.id) {
+
+    <div
+      class="foto"
+      (click)="abrirFoto(foto)">
+
+      <img
+        [src]="foto.src.medium"
+        [alt]="foto.alt">
+
+    </div>
+
+  }
+
+</div>
+
+@if (fotoSelecionada) {
+
+  <div
+    class="modal-foto"
+    (click)="fecharFoto()">
+
+    <div class="conteudo-modal"
+         (click)="$event.stopPropagation()">
+
+      <img
+        class="foto-grande"
+        [src]="fotoSelecionada.src.large"
+        [alt]="fotoSelecionada.alt">
+
+      <ion-button
+        expand="block"
+        (click)="favoritar(fotoSelecionada)">
+
+        Favoritar
+
+      </ion-button>
+
+      <ion-button
+        expand="block"
+        fill="outline"
+        (click)="fecharFoto()">
+
+        Fechar
+
+      </ion-button>
+
+    </div>
+
+  </div>
+
+}
+
+</ion-content>

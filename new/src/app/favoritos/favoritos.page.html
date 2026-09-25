@@ -1,0 +1,76 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        Voltar
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Favoritos</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="galeria">
+
+    @for (foto of favoritos; track foto.id) {
+
+      <div
+        class="foto"
+        (click)="abrirFoto(foto)">
+
+        <img
+          [src]="foto.src.medium"
+          [alt]="foto.alt">
+
+      </div>
+
+    }
+
+  </div>
+
+  @if (fotoSelecionada) {
+
+    <div
+      class="modal-foto"
+      (click)="fecharFoto()">
+
+      <div
+        class="conteudo-modal"
+        (click)="$event.stopPropagation()">
+
+        <img
+          class="foto-grande"
+          [src]="fotoSelecionada.src.large"
+          [alt]="fotoSelecionada.alt">
+
+        <ion-button
+          expand="block"
+          color="danger"
+          (click)="desfavoritar(fotoSelecionada)">
+
+          Desfavoritar
+
+        </ion-button>
+
+        <ion-button
+          expand="block"
+          fill="outline"
+          (click)="fecharFoto()">
+
+          Fechar
+
+        </ion-button>
+
+      </div>
+
+    </div>
+
+  }
+
+</ion-content>
